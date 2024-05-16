@@ -93,7 +93,6 @@ if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localS
     themeToggleDarkIcon.classList.remove("hidden");
 }
 
-// Toggle the icons inside the button
 themeToggleBtn.addEventListener("click", function () {
     // Toggle the icons inside the button
     themeToggleDarkIcon.classList.toggle("hidden");
