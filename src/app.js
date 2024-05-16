@@ -1,6 +1,11 @@
 const bookForm = document.getElementById("bookForm");
 const bookList = document.getElementById("bookList");
 
+// Theme toggle
+const themeToggleBtn = document.getElementById("themeToggle");
+const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
 // Load books from local storage on page load
 window.addEventListener("load", () => {
     const books = JSON.parse(localStorage.getItem("books")) || [];
@@ -81,11 +86,6 @@ function renderBooks(books) {
     });
 }
 
-// Theme toggle
-const themeToggleBtn = document.getElementById("themeToggle");
-const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
-const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
-
 // Change the icons inside the button based on previous settings
 if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     themeToggleLightIcon.classList.remove("hidden");
@@ -93,6 +93,7 @@ if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localS
     themeToggleDarkIcon.classList.remove("hidden");
 }
 
+// Toggle the icons inside the button
 themeToggleBtn.addEventListener("click", function () {
     // Toggle the icons inside the button
     themeToggleDarkIcon.classList.toggle("hidden");
